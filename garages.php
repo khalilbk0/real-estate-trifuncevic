@@ -10,10 +10,10 @@ $buildings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 <div class="container-fluid px-5 py-5">
-  <form action="uploadAppartments.php" method="POST" name="form" enctype="multipart/form-data">
+  <form action="uploadGarage.php" method="POST" name="form" enctype="multipart/form-data">
 <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Appartment Adress : </label>
-  <input type="text" class="form-control" name="Adress" id="exampleFormControlInput1" placeholder="Appartment Adress">
+  <label for="exampleFormControlInput1" class="form-label">garage Adress : </label>
+  <input type="text" class="form-control" name="Adress" id="exampleFormControlInput1" placeholder="garage Adress">
 </div>
 <div class="mb-3">
 <label for="exampleFormControlInput1" class="form-label">Building name : </label>  

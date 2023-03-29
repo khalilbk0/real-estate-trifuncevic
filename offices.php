@@ -1,30 +1,16 @@
 <?php
-
-include 'base.php'  ; 
-include './db/connexion.php' ;
-$stmt = $pdo->prepare("SELECT buildingName,id FROM building");
-$stmt->execute();
-$buildings = $stmt->fetchAll(PDO::FETCH_ASSOC);
+ 
+ include 'base.php' ; 
 
 ?>
 
-
 <div class="container-fluid px-5 py-5">
-  <form action="uploadAppartments.php" method="POST" name="form" enctype="multipart/form-data">
+  <form action="uploadOffices.php" method="POST" name="form" enctype="multipart/form-data">
 <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Appartment Adress : </label>
-  <input type="text" class="form-control" name="Adress" id="exampleFormControlInput1" placeholder="Appartment Adress">
+  <label for="exampleFormControlInput1" class="form-label">Office Adress : </label>
+  <input type="text" class="form-control" name="Adress" id="exampleFormControlInput1" placeholder="Office Adress">
 </div>
-<div class="mb-3">
-<label for="exampleFormControlInput1" class="form-label">Building name : </label>  
-<select class="form-select form-select-sm"  name="building" aria-label=".form-select-sm example">
-   <?php 
-      foreach ($buildings as $building) {
-        echo '<option value="' . $building['id'] . '">' . $building['buildingName'] . '</option>';
-    }
-    ?>
-</select>
-</div>
+ 
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Description : </label>
   <textarea class="form-control" name="desc" id="exampleFormControlTextarea1" rows="3"></textarea>

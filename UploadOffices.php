@@ -5,7 +5,6 @@ include './db/helpers.php' ;
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Get the values of the form fields
   $Adress = $_POST['Adress'];
-  $BuildingID = $_POST['building'];
   $desc = $_POST['desc'];
   $sq = $_POST['squarefeet'] ; 
   $main_image = $_FILES['image'] ; 
@@ -36,12 +35,10 @@ include './db/helpers.php' ;
   
  }
  try {
-  $stmt = $pdo->prepare("INSERT INTO `apartment`(`building_id`, `address`, `squarefeet`, `structure`, `main_image`) VALUES (?,?,?,?,?)");
-  $stmt->execute([$BuildingID, $Adress, $sq, json_encode($structure , JSON_UNESCAPED_SLASHES) , uploadImage($main_image) ]);
+  $stmt = $pdo->prepare("INSERT INTO `office` (`address`, `description`, `square_feet`, `structure`, `main_image`, `other_images` ) VALUES (?,?,?,?,?,?)");
+  $stmt->execute([$Adress,$desc,$sq,json_encode($structure , JSON_UNESCAPED_SLASHES) , uploadImage($main_image), NULL ]);
   $id = $pdo->lastInsertId();
-  header('Location: uploadGallery.php?type=app&id='.$id);
-
-
+  header('Location: uploadGallery.php?type=off&id='.$id);
 } catch (PDOException $e) {
   echo "Error inserting data: " . $e->getMessage();
 }

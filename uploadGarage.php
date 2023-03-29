@@ -36,10 +36,10 @@ include './db/helpers.php' ;
   
  }
  try {
-  $stmt = $pdo->prepare("INSERT INTO `apartment`(`building_id`, `address`, `squarefeet`, `structure`, `main_image`) VALUES (?,?,?,?,?)");
+  $stmt = $pdo->prepare("INSERT INTO `garage`(`building_id`, `address`, `squarefeet`, `structure`, `main_image`) VALUES (?,?,?,?,?)");
   $stmt->execute([$BuildingID, $Adress, $sq, json_encode($structure , JSON_UNESCAPED_SLASHES) , uploadImage($main_image) ]);
   $id = $pdo->lastInsertId();
-  header('Location: uploadGallery.php?type=app&id='.$id);
+  header('Location: uploadGallery.php?type=gar&id='.$id);
 
 
 } catch (PDOException $e) {
