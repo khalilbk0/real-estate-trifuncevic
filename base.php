@@ -89,6 +89,10 @@ echo '
                 <svg class="nav-icon">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-industry"></use>
                 </svg> Offices </a></li>
+                <li class="nav-item"><a class="nav-link" href="garages.php">
+                <svg class="nav-icon">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-garage"></use>
+                </svg> Garage </a></li>
           
         <li class="nav-divider"></li>
         <li class="nav-item"><a class="nav-link" href="login.html" target="_top">
@@ -115,6 +119,7 @@ echo '
             <li class="nav-item"><a class="nav-link" href="/apartments.php">Apartments</a></li>
             <li class="nav-item"><a class="nav-link" href="/buildings.php">Buildings</a></li>
             <li class="nav-item"><a class="nav-link" href="/offices.php">Offices</a></li>
+            <li class="nav-item"><a class="nav-link" href="/garages.php">Garages</a></li>
           </ul>
           <ul class="header-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="#">
