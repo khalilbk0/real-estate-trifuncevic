@@ -5,9 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Get the values of the form fields
   $buildingName = $_POST['buildingName'];
   $address = $_POST['address'];
-  $description = $_POST['desc'];
-  $video = $_POST['video'];
   $image = $_FILES['image'];
+  
 
   // Validate the input
   if (empty($buildingName) || empty($address) || empty($image)) {
@@ -35,11 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Store the data in a database or file
   try{
-    $stmt = $pdo->prepare("INSERT INTO building (buildingName, address, description ,  img, video_link) VALUES (:buildingName, :address, :description,  :img, :video_link)");
+    $stmt = $pdo->prepare("INSERT INTO building (buildingName, address, img) VALUES (:buildingName, :address, :img)");
     $stmt->bindParam(':buildingName', $buildingName);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':address', $address);
-    $stmt->bindParam(':video_link', $video);
     $stmt->bindParam(':img', $targetFile);
     $stmt->execute();
 

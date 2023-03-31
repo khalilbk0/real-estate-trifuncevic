@@ -85,7 +85,7 @@ echo '
               <svg class="nav-icon">
                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-house"></use>
               </svg> Apartments </a></li>
-              <li class="nav-item"><a class="nav-link" href="offices.php">
+              <li class="nav-item"><a class="nav-link" href="apartments.php">
                 <svg class="nav-icon">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-industry"></use>
                 </svg> Offices </a></li>

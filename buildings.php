@@ -18,7 +18,11 @@ include 'base.php'  ;
     </div>
     <div class="mb-3">
       <label for="address" class="form-label">Address:</label>
-      <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+      <input class="form-control" id="address" name="address"   required> 
+    </div>
+        <div class="mb-3">
+      <label for="address" class="form-label">Description:</label>
+      <textarea class="form-control" id="address" name="desc" rows="3" required></textarea>
     </div>
     <div class="mb-3">
       <label for="address" class="form-label">Video link :</label>
