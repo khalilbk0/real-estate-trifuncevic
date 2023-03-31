@@ -5,7 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Get the values of the form fields
   $buildingName = $_POST['buildingName'];
   $address = $_POST['address'];
-  $desc = $_POST['desc'];
   $image = $_FILES['image'];
   
 
@@ -35,19 +34,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Store the data in a database or file
   try{
-    $stmt = $pdo->prepare("INSERT INTO building (buildingName, address,desciption, img) VALUES (:buildingName, :address,:desciption, :img)");
+    $stmt = $pdo->prepare("INSERT INTO building (buildingName, address, img) VALUES (:buildingName, :address, :img)");
     $stmt->bindParam(':buildingName', $buildingName);
+    $stmt->bindParam(':description', $description);
     $stmt->bindParam(':address', $address);
-    $stmt->bindParam(':desciption', $desc);
     $stmt->bindParam(':img', $targetFile);
     $stmt->execute();
+
+    header('Location: buildings.php?added=true');
+    exit();
   }catch (PDOException $e){
     echo $e->getMessage() ;
   }
 
   // Redirect to a success page
-  header('Location: buildings.php?added=true');
-  exit();
+
 } else {
   // Handle invalid request methods
   http_response_code(405);
