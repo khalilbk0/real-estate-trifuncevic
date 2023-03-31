@@ -13,16 +13,13 @@ include 'base.php'  ;
       <input type="text" class="form-control" id="buildingName" name="buildingName" placeholder="Name of the building" required>
     </div>
     <div class="mb-3">
-      <label for="buildingName" class="form-label">Building description :</label>
-      <input type="text" class="form-control" id="buildingName" name="desc" placeholder="Description" required>
+      <label for="buildingName" class="form-label">Building Address :</label>
+      <input type="text" class="form-control" id="address" name="address" placeholder="Description" required>
     </div>
-    <div class="mb-3">
-      <label for="address" class="form-label">Address:</label>
-      <input class="form-control" id="address" name="address"   required> 
-    </div>
+ 
         <div class="mb-3">
       <label for="address" class="form-label">Description:</label>
-      <textarea class="form-control" id="address" name="desc" rows="3" required></textarea>
+      <textarea class="form-control" id="address" name="desc" rows="3" ></textarea>
     </div>
     <div class="mb-3">
       <label for="address" class="form-label">Video link :</label>
@@ -33,7 +30,12 @@ include 'base.php'  ;
       <label for="image" class="form-label">Image to upload:</label>
       <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
     </div>
-    
+    <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" id="flexCheckChecked" name="flexCheckChecked">
+  <label class="form-check-label" for="flexCheckChecked">
+    Under Construction
+  </label>
+</div>
     <div class="row mx-auto mt-5">
       <button type="submit" class="btn btn-primary text-white">Add</button>
     </div>

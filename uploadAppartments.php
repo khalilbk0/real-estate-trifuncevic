@@ -7,7 +7,10 @@ include './db/helpers.php' ;
   $Adress = $_POST['Adress'];
   $BuildingID = $_POST['building'];
   $desc = $_POST['desc'];
+  $stage = $_POST['stage'];
+  $mark = $_POST['Mark'];
   $sq = $_POST['squarefeet'] ; 
+  $underConstruction = isset($_POST["flexCheckChecked"]) ? 0 : 1;
   $main_image = $_FILES['image'] ; 
   $key_images = array_keys($_FILES) ;
   $key_icon_text =  array_keys($_POST) ; 
@@ -36,8 +39,8 @@ include './db/helpers.php' ;
   
  }
  try {
-  $stmt = $pdo->prepare("INSERT INTO `apartment`(`building_id`, `address`, `squarefeet`, `structure`, `main_image`) VALUES (?,?,?,?,?)");
-  $stmt->execute([$BuildingID, $Adress, $sq, json_encode($structure , JSON_UNESCAPED_SLASHES) , uploadImage($main_image) ]);
+  $stmt = $pdo->prepare("INSERT INTO `apartment`(`building_id`, `address`, `squarefeet`, `stage` , `mark` ,  `structure`, `main_image`, `main_image`, `is_completed`) VALUES (?,?,?,?,?,?,?,?)");
+  $stmt->execute([$BuildingID, $Adress, $sq,$stage,$mark, json_encode($structure , JSON_UNESCAPED_SLASHES) , uploadImage($main_image) ]);
   $id = $pdo->lastInsertId();
   header('Location: uploadGallery.php?type=app&id='.$id);
 

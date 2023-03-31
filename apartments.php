@@ -33,7 +33,20 @@ $buildings = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <label for="exampleFormControlTextarea1"  class="form-label">Squarefeet : </label>
   <input class="form-control" type="text" name="squarefeet" rows="3"></input>
 </div>
- 
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1"  class="form-label">Stage : </label>
+  <input class="form-control" type="text" name="stage" rows="3"></input>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1"  class="form-label">Mark : </label>
+  <input class="form-control" type="text" name="Mark" rows="3"></input>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" id="flexCheckChecked" name="flexCheckChecked">
+  <label class="form-check-label" for="flexCheckChecked">
+    Under Construction
+  </label>
+</div>
  
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Main Image : </label>

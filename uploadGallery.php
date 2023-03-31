@@ -40,7 +40,32 @@ if(!empty($_GET['id']) && !empty($type = $_GET['type'])){
 
  <form action="" method="post" enctype="multipart/form-data">
     <label for="images">Select Images:</label>
-    <input type="file" name="images[]" id="images" multiple>
-    <button type="submit" name="submit">Upload Images</button>
+    <input type="file" class="form-control w-50" name="images[]" id="images"  accept="images/*" multiple>
+    <button type="submit" name="submit" class="btn btn-primary">Upload Images</button>
 </form>
  </div>
+
+ <div id="preview-container"></div>
+
+
+ <script>
+    const input = document.getElementById('images');
+    const previewContainer = document.getElementById('preview-container');
+
+    input.addEventListener('change', () => {
+      previewContainer.innerHTML = '';
+      const files = input.files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          const img = document.createElement('img');
+          img.src = reader.result;
+          img.alt = file.name;
+          img.className = "img-thumbnail"
+          previewContainer.appendChild(img);
+        }
+      }
+    });
+  </script>
