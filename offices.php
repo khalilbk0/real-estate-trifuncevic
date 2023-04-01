@@ -1,7 +1,6 @@
 <?php
  
- include 'base.php' ; 
-
+ include 'base.php' ;  
 ?>
 
 <div class="container-fluid px-5 py-5">

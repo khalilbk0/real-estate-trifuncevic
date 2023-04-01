@@ -1,6 +1,6 @@
 <?php
 include 'base.php' ; 
-include './db/helpers.php' ; 
+include './db/helpers.php' ;  
 include './db/connexion.php' ; 
 try {
 

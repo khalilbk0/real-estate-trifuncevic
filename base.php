@@ -1,5 +1,5 @@
 <?php
-
+include_once './db/auth.php' ; 
 echo '
 <!DOCTYPE html>
 <!--
@@ -22,6 +22,10 @@ echo '
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
   
+	<link rel="stylesheet"  href="vendor/DataTables/datatables.min.css">	
+	<link rel="stylesheet"  href="style.css">	
+	<script src="vendor/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="vendor/DataTables/datatables.min.js" type="text/javascript"></script> 	
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -95,7 +99,7 @@ echo '
                 </svg> Garage </a></li>
           
         <li class="nav-divider"></li>
-        <li class="nav-item"><a class="nav-link" href="login.html" target="_top">
+        <li class="nav-item"><a class="nav-link" href="logout.php" target="_top">
           <svg class="nav-icon">
             <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
           </svg> Logout </a></li> 

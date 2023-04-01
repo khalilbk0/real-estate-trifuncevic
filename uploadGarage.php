@@ -1,6 +1,6 @@
 <?php
 
-include './db/connexion.php' ;
+include './db/connexion.php' ;  
 include './db/helpers.php' ; 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Get the values of the form fields
@@ -39,10 +39,10 @@ include './db/helpers.php' ;
   
  }
  try {
-  $stmt = $pdo->prepare("INSERT INTO `garage`(`building_id`, `address`, `squarefeet`, `structure`, `main_image`) VALUES (?,?,?,?,?)");
-  $stmt->execute([$BuildingID, $Adress, $sq, json_encode($structure , JSON_UNESCAPED_SLASHES) , uploadImage($main_image) ]);
-  $id = $pdo->lastInsertId();
-  header('Location: uploadGallery.php?type=gar&id='.$id);
+  $stmt = $pdo->prepare("INSERT INTO `garage`(`building_id`, `address`, `description`, `squarefeet`, `stage`, `mark`,  `structure`, `main_image` , `other_images`, `is_completed`) VALUES (?,?,?,?,?,?,?,?,?,?)");
+$stmt->execute([$BuildingID, $Adress, $description, $sq, $stage, $mark, json_encode($structure , JSON_UNESCAPED_SLASHES), uploadImage($main_image), NULL, $underConstruction]);
+$id = $pdo->lastInsertId();
+ header('Location: uploadGallery.php?type=gar&id='.$id);
 
 
 } catch (PDOException $e) {

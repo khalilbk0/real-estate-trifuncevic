@@ -21,7 +21,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['user_id'] = 1;
 
         // Redirect to the dashboard or homepage
-        header("Location: dashboard.php");
+        header("Location: index.php");
         exit();
     } else {
         // Show an error message if the credentials are incorrect

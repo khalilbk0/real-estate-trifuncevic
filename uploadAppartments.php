@@ -2,6 +2,7 @@
 
 include './db/connexion.php' ;
 include './db/helpers.php' ; 
+include './db/auth.php' ; 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Get the values of the form fields
   $Adress = $_POST['Adress'];

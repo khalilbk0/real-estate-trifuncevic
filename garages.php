@@ -12,7 +12,7 @@ $buildings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="container-fluid px-5 py-5">
   <form action="uploadGarage.php" method="POST" name="form" enctype="multipart/form-data">
 <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">garage Adress : </label>
+  <label for="exampleFormControlInput1" class="form-label">Garage Adress : </label>
   <input type="text" class="form-control" name="Adress" id="exampleFormControlInput1" placeholder="garage Adress">
 </div>
 <div class="mb-3">
