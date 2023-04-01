@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'real_estate';
 $user = 'root';
-$password = '';
+$password = '123123123';
 
 // Create a new PDO instance
 try {

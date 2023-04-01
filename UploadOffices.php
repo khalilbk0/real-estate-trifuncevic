@@ -7,6 +7,9 @@ include './db/helpers.php' ;
   $Adress = $_POST['Adress'];
   $desc = $_POST['desc'];
   $sq = $_POST['squarefeet'] ; 
+  $stage = $_POST['stage'];
+  $mark = $_POST['mark'];
+  $underConstruction = isset($_POST["flexCheckChecked"]) ? 0 : 1;
   $main_image = $_FILES['image'] ; 
   $key_images = array_keys($_FILES) ;
   $key_icon_text =  array_keys($_POST) ; 
@@ -35,10 +38,10 @@ include './db/helpers.php' ;
   
  }
  try {
-  $stmt = $pdo->prepare("INSERT INTO `office` (`address`, `description`, `square_feet`, `structure`, `main_image`, `other_images` ) VALUES (?,?,?,?,?,?)");
-  $stmt->execute([$Adress,$desc,$sq,json_encode($structure , JSON_UNESCAPED_SLASHES) , uploadImage($main_image), NULL ]);
+  $stmt = $pdo->prepare("INSERT INTO `office` (`address`, `description` , `squarefeet`, `stage`, `mark`, `structure`, `main_image`, `other_images`, `is_completed`) VALUES (?,?,?,?,?,?,?,?,?)");
+  $stmt->execute([$Adress, $desc, $sq, $stage, $mark, json_encode($structure, JSON_UNESCAPED_SLASHES), uploadImage($main_image), NULL, $underConstruction]);
   $id = $pdo->lastInsertId();
-  header('Location: uploadGallery.php?type=off&id='.$id);
+  header('Location: uploadGallery.php?type=off&id=' . $id);
 } catch (PDOException $e) {
   echo "Error inserting data: " . $e->getMessage();
 }
