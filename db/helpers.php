@@ -66,5 +66,10 @@ function uploadMultipleImages($image) {
     return $uploaded_images_paths;
 } 
 
-
+function extractImage($str) {
+    if (preg_match('/\[(.*?)\]/', $str, $match)) {
+      return $match[1];
+    }
+    return null;
+  }
 ?>

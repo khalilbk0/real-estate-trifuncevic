@@ -20,12 +20,12 @@ echo '
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+   
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
   
-	<link rel="stylesheet"  href="vendor/DataTables/datatables.min.css">	
-	<link rel="stylesheet"  href="style.css">	
-	<script src="vendor/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
-    <script src="vendor/DataTables/datatables.min.js" type="text/javascript"></script> 	
+   
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -33,6 +33,8 @@ echo '
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">

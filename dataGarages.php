@@ -2,44 +2,64 @@
 
 include 'base.php' ;
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Garages</title>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			// load the garage data using AJAX
-			$.ajax({
-				url: "getGarages.php",
-				dataType: "json",
-				success: function(data) {
-					// populate the table with the data
-					$.each(data, function(i, garage) {
-						$("#garageTable").append("<tr><td>" + garage.id + "</td><td>" + garage.building_id + "</td><td>" + garage.address + "</td><td>" + garage.description + "</td><td>" + garage.squarefeet + "</td><td>" + garage.structure + "</td><td>" + garage.main_image + "</td><td>" + garage.other_images + "</td></tr>");
-					});
-				}
-			});
-		});
-	</script>
-</head>
-<body>
-	<table id="garageTable">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Building ID</th>
-				<th>Address</th>
-				<th>Description</th>
-				<th>Square Feet</th>
-				<th>Structure</th>
-				<th>Main Image</th>
-				<th>Other Images</th>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
-</body>
-</html>
+?> 
+ 
+
+<!-- <div class="mx-auto">
+-->
+
+
+
+
+<div class="tab-pane p-3 active preview  mx-auto" role="tabpanel" class="display nowrap"  id="preview-1218">
+<table id="garagesTable">
+  <thead>
+    <tr>
+		<th>#ID </th>
+      <th>Building ID</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Square Feet</th>
+      <th>Stage</th>
+      <th>Mark</th>
+      <th>Structure</th>
+      <th>Main Image</th>
+      <th>Other Images</th>
+      <th>Is Completed</th>
+	  <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+</div>
+
+
+</div> 
+               
+
+<script>
+$(document).ready(function () {
+    $('#garagesTable').DataTable({
+        processing: true,
+        serverSide: true,
+		scrollx: 400,
+        ajax: 'db/fetch_garages.php',
+		columnDefs: [
+            {
+                targets: -1,
+                data: null,
+                defaultContent: '<button class="btn btn-danger text-white">X</button>',
+            },
+        ],
+    });
+ 
+	$(".btn").click(function (e) { 
+	alert('works')
+	
+});
+    
+});
+
+</script>
