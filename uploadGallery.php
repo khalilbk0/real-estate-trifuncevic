@@ -30,11 +30,12 @@ try {
         $stmt->execute();
       }
     }
+
   } 
 } catch (PDOException $e) {
   echo "Error updating data: " . $e->getMessage();
 }
-
+ 
 
 
 ?>
@@ -42,14 +43,22 @@ try {
 
  <div class="container">
 
- <form action="" method="post" enctype="multipart/form-data">
-    <label for="images">Select Images:</label>
+
+ <form class="row " action="" method="post" enctype="multipart/form-data">
+  <div class="col ">
+ 
     <input type="file" class="form-control w-50" name="images[]" id="images"  accept="images/*" multiple>
-    <button type="submit" name="submit" class="btn btn-primary">Upload Images</button>
+  </div>
+ 
+  <div class="col ">
+  <button type="submit" name="submit" class="btn btn-primary">Upload Images</button>
+  </div>
 </form>
+ 
+ 
  </div>
 
- <div id="preview-container"></div>
+ <div class="mt-5" id="preview-container"></div>
 
 
  <script>

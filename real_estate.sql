@@ -39,7 +39,7 @@ CREATE TABLE `apartment` (
   `main_image` varchar(255) DEFAULT NULL,
   `other_images` json DEFAULT NULL,
   `is_completed` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `apartment`
@@ -65,7 +65,7 @@ CREATE TABLE `building` (
   `video_link` varchar(255) DEFAULT NULL,
   `img` varchar(255) DEFAULT NULL,
   `is_completed` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `building`
@@ -93,7 +93,7 @@ CREATE TABLE `office` (
   `main_image` varchar(255) DEFAULT NULL,
   `other_images` json DEFAULT NULL,
   `is_completed` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `office`

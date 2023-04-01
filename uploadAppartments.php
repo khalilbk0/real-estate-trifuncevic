@@ -39,10 +39,11 @@ include './db/helpers.php' ;
   
  }
  try {
-  $stmt = $pdo->prepare("INSERT INTO `apartment`(`building_id`, `address`, `description`, `squarefeet`, `stage`, `mark`, `structure`, `main_image`, `other_images` ,`is_completed`) VALUES (?,?,?,?,?,?,?,?,?)");
-  $stmt->execute([$BuildingID, $Adress,$desc , $sq, $stage, $mark, json_encode($structure, JSON_UNESCAPED_SLASHES), uploadImage($main_image),NULL , $underConstruction, ]);
+  $stmt = $pdo->prepare("INSERT INTO `apartment`(`building_id`, `address`, `description`, `squarefeet`, `stage`, `mark`, `structure`, `main_image`, `other_images` ,`is_completed`) VALUES (?,?,?,?,?,?,?,?,?,?)");
+  $stmt->execute([$BuildingID, $Adress,$desc , $sq, $stage, $mark, json_encode($structure, JSON_UNESCAPED_SLASHES), uploadImage($main_image),NULL , $underConstruction]);
   $id = $pdo->lastInsertId();
   header('Location: uploadGallery.php?type=app&id='.$id);
+  
   
 
 
