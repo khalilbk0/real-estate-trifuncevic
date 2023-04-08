@@ -5,6 +5,31 @@ include './db/helpers.php' ;
 include './db/auth.php' ; 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Get the values of the form fields
+
+if(!empty($_GET['id'])){
+    $id = $_GET['id'] ; 
+    $Adress = $_POST['Adress'];
+    $BuildingID = $_POST['building'];
+    $desc = $_POST['desc'];
+    $stage = $_POST['stage'];
+    $mark = $_POST['Mark'];
+    $sq = $_POST['squarefeet'] ; 
+    $underConstruction = isset($_POST["flexCheckChecked"]) ? 0 : 1;
+
+    try {
+        $stmt = $pdo->prepare("UPDATE `apartment` SET `building_id`=?, `address`=?, `description`=?, `squarefeet`=?, `stage`=?, `mark`=?, `is_completed`=? WHERE `id`=?");
+        $stmt->execute([$BuildingID, $Adress, $desc, $sq, $stage, $mark, $underConstruction, $id]);
+foreach ($key_icon_text as $key) {
+  if(strpos($key, "icon_text") !== false) {
+    array_push($icons_values, $key);
+  }
+}
+        header('Location: index.php');
+        exit(); // add exit to prevent further execution
+    } catch (PDOException $e) {
+        echo "Error updating data: " . $e->getMessage();
+    }
+}
   $Adress = $_POST['Adress'];
   $BuildingID = $_POST['building'];
   $desc = $_POST['desc'];
@@ -12,7 +37,7 @@ include './db/auth.php' ;
   $mark = $_POST['Mark'];
   $sq = $_POST['squarefeet'] ; 
   $underConstruction = isset($_POST["flexCheckChecked"]) ? 0 : 1;
-  $main_image = $_FILES['image'] ; 
+  $main_image = $_FILES['image']; 
   $key_images = array_keys($_FILES) ;
   $key_icon_text =  array_keys($_POST) ; 
   $icons = [] ; 

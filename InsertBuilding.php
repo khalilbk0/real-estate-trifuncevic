@@ -7,13 +7,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $address = $_POST["address"];
     $description = $_POST["desc"];
     $video = $_POST["video"];
+    if (isset($_FILES["image"])) {
+        
     $image = $_FILES["image"];
+      }else{
+        if(!empty($_GET['id'])){
+            $id = $_GET['id'] ;
+            try {
+                $stmt = $pdo->prepare("UPDATE building SET buildingName=:buildingName, address=:address, description=:description, video_link=:video,   is_completed=:isCompleted WHERE id=:id");
+                $stmt->bindParam(':buildingName', $buildingName);
+                $stmt->bindParam(':address', $address);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':video', $video); 
+                $stmt->bindParam(':isCompleted', $underConstruction);
+                $stmt->bindParam(':id', $id);
+                $stmt->execute();
+                header('Location: buildings.php?updated=true');
+                exit();
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+      }
     $underConstruction = isset($_POST["flexCheckChecked"]) ? 0 : 1;
-
-  
-
-
-    // Validate the input
+   // Validate the input
     if (empty($buildingName) || empty($address) || empty($image)) {
         echo 'Error: All fields are required';
         exit();
@@ -38,6 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Store the data in a database or file
+    
+    
     try {
         $stmt = $pdo->prepare("INSERT INTO building (buildingName, address, description, video_link, img, is_completed) VALUES (:buildingName, :address, :description, :video, :img, :isCompleted)");
         $stmt->bindParam(':buildingName', $buildingName);

@@ -4,6 +4,28 @@ include './db/connexion.php' ;
 include './db/auth.php' ; 
 include './db/helpers.php' ; 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if(!empty($_GET['id'])){
+  $id = $_GET['id'] ; 
+  $Adress = $_POST['Adress'];
+  $desc = $_POST['desc'];
+  $sq = $_POST['squarefeet'] ; 
+  $stage = $_POST['stage'];
+  $mark = $_POST['mark'];
+  $underConstruction = isset($_POST["flexCheckChecked"]) ? 0 : 1;
+ 
+     
+      try {
+        
+          $stmt = $pdo->prepare("UPDATE `office` SET  `address`=?, `description`=?, `squarefeet`=?, `stage`=?, `mark`=?, `is_completed`=? WHERE `id`=?");
+          $stmt->execute([$Adress, $desc, $sq, $stage, $mark, $underConstruction, $id]);
+        
+          header('Location: index.php');
+          exit(); // add exit to prevent further execution
+      } catch (PDOException $e) {
+          echo "Error updating data: " . $e->getMessage();
+      }
+  }
   // Get the values of the form fields
   $Adress = $_POST['Adress'];
   $desc = $_POST['desc'];
