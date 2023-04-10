@@ -73,6 +73,9 @@ $('div.wrapper.d-flex.flex-column.min-vh-100').removeClass('bg-light')
 
     $(document).on('click', '.btn-info', function(e) {
       e.preventDefault();
+      let table = window.location.href;
+  let datainUrl = table.indexOf('data')
+  table = (table.slice(datainUrl,table.indexOf('.')).replace('data','').toLowerCase())
    /*    alert('Row deletion is not implemented yet!'); */
       // You can add your row deletion code here
       let id = $(this).parent().parent().find(".sorting_1").html() ;

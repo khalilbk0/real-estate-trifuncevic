@@ -45,7 +45,10 @@ if($table == "office"){
   </div> 
   
   
- 
+  <div class="mb-3">
+  <label for="image" class="form-label">Image</label>
+   <img width="200" height="200" class="d-block" src="'.$building['main_image'].'" />
+</div>
  
  ' ;
      
@@ -101,7 +104,11 @@ echo '</select>
   <label for="exampleFormControlTextarea1"  class="form-label">Mark : </label>
   <input class="form-control" type="text" value="'.$building['mark'].'"  name="Mark" rows="3"></input>
 </div>  
-
+  
+<div class="mb-3">
+<label for="image" class="form-label">Image</label>
+ <img width="200" height="200" class="d-block" src="'.$building['main_image'].'" />
+</div>
 ' ;
 if($building['is_completed'] == "0"){
     echo '   <div class="form-check">

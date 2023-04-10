@@ -17,6 +17,19 @@
   .background-section h1 {
     color: #fff;
   }
+  .card-office{
+    
+  overflow: hidden;
+  max-width: 265px;
+  text-align: center;
+  border: 1px solid #0066b4;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-bottom: 80px;
+
+  margin: 10px;
+  }
   
   .ad-info-wrapper {
     margin-top: 80px;

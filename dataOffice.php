@@ -78,7 +78,9 @@ $(document).ready(function () {
       // You can add your row deletion code here
  
       let id = $(this).parent().parent().find(".sorting_1").html() ;
-
+      let table = window.location.href;
+  let datainUrl = table.indexOf('data')
+  table = (table.slice(datainUrl,table.indexOf('.')).replace('data','').toLowerCase())
       window.location.replace('editAd.php?type='+table+'&id='+id)
     });
  

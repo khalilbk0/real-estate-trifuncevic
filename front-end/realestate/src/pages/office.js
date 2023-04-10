@@ -1,9 +1,8 @@
-import NavbarComponent from '@/components/navbar'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react' 
 import { Carousel } from 'react-bootstrap'  
-function Appartment() {
+function Office() {
   const [Apartment, setApartment] = useState({})
   const [Structure, setStructure] = useState([])
   const [Carrousel, setCarrousel] = useState([])
@@ -12,13 +11,15 @@ function Appartment() {
   useEffect(() => {
     const fetchData = async () => {
       return await axios.get(
-        `https://testing.tvikonekretnine.com/api/apartmentDetails.php?id=${router.query.id}`
+        `https://testing.tvikonekretnine.com/api/OfficeById.php?id=${router.query.id}`
       ) 
    
     }
 
     try {
       fetchData().then(async (res) => {
+
+        console.log(res)
         console.log(res.data)
         let app = res.data[0]
         setStructure(res.data[0].structure)
@@ -39,9 +40,8 @@ function Appartment() {
 
   return (
     <div>
-    <NavbarComponent/>
       <div className="background-section">
-        <h1>Neka vaša potraga za savršenim domom bude jednostavna i ugodna.</h1>
+        <h1 style={{fontSize:"1.5em", fontWeight:700}} >Neka vaša potraga za savršenim domom bude jednostavna i ugodna.</h1>
       </div>
       <div className="container">
         <div className="ad-info-wrapper">
@@ -134,4 +134,4 @@ function Appartment() {
   )
 }
 
-export default Appartment
+export default Office

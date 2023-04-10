@@ -12,7 +12,7 @@ $id = $_GET['id'] ;
     header("Access-Control-Allow-Headers: X-Requested-With");
     header('Content-Type: application/json');
 try {
-  $stmt = $pdo->prepare("SELECT * FROM `apartment` where id = $id "); // select all data from the apartment table
+  $stmt = $pdo->prepare("SELECT * FROM `office` where id = $id "); // select all data from the apartment table
   $stmt->execute();
 
   // loop through each row and add it to the data array

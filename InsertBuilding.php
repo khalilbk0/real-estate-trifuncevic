@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->bindParam(':isCompleted', $underConstruction);
                 $stmt->bindParam(':id', $id);
                 $stmt->execute();
-                header('Location: buildings.php?updated=true');
+                header('Location: /');
                 exit();
             } catch (PDOException $e) {
                 echo $e->getMessage();
