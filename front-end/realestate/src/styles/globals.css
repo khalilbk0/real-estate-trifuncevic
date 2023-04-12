@@ -110,6 +110,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 150px;
+ 
 }
 
 .onSale {
@@ -127,6 +128,444 @@
   margin: auto;
   justify-content: space-between;
   margin-bottom: 25px;
+  list-style: none;
+}
+
+.section {
+  transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.slider {
+  width: 100%;
+  height: 70vh;
+
+  margin: 0 auto;
+  position: relative;
+  /* IN THE END */
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  /*
+  height: 50rem;
+*/
+
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* THIS creates the animation! */
+  transition: transform 1s;
+}
+
+.slide > img {
+  /* Only for images that have different size than slide */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+
+  border: none;
+  background: rgba(88, 88, 88, 0.7);
+  font-family: inherit;
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3.25rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.slider__btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+  color: rgb(77, 77, 77);
+}
+
+.slider__btn--left {
+  left: 6%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__btn--right {
+  right: 6%;
+  transform: translate(50%, -50%);
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  /* Only necessary when overlying images */
+  /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  /* background-color: #fff; */
+  background-color: rgb(51, 51, 51);
+  opacity: 1;
+}
+
+.none {
+  display: none;
+  transition: 00.7s;
+}
+
+.onama-sec {
+  display: flex;
+  align-items: center;
+  margin-top: 80px;
+  margin-bottom: 200px;
+}
+
+.h-text {
+  margin-right: 80px;
+}
+
+.sec-h {
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.h-text p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.img-owner img {
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 850px) {
+  .onama-sec {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .img-owner {
+    margin-top: 100px;
+  }
+  .h-text {
+    text-align: center;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .slider__btn {
+    height: 3.5rem;
+    width: 3.5rem;
+    font-size: 2.25rem;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .h-text h2 {
+    font-size: 30px;
+  }
+
+  .h-text p {
+    font-size: 17px;
+  }
+
+  .img-owner img {
+    width: 100%;
+    height: auto;
+  }
+
+  .img-owner h3 {
+    text-align: center;
+  }
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.info {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.info-wrapper {
+  background-image: url("/assets/services-back.png");
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  z-index: -1;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 200px 0px 0px 0px;
+}
+
+.info-card {
+  width: 250px;
+  background-color: #fff;
+  border: 5px solid #0066b4;
+  height: 370px;
+  padding: 5px 30px 35px 30px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0px 15px;
+}
+
+.shift {
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+.card-heading {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+@media only screen and (max-width: 600px) {
+  .info-wrapper {
+    height: 600px;
+  }
+
+  .info-card {
+    width: 180px;
+
+    height: 300px;
+    padding: 5px 20px 25px 20px;
+    text-align: center;
+  }
+
+  .card-heading {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .card-text {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .info-wrapper {
+    height: 600px;
+  }
+
+  .info-card {
+    width: 170px;
+    height: 280px;
+    padding: 5px 7px 15px 7px;
+    text-align: center;
+  }
+
+  .info-card > img {
+    height: 64px;
+    width: 64px;
+  }
+
+  .card-heading {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .card-text {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 383px) {
+  .info-wrapper {
+    height: 900px;
+  }
+
+  .info-card {
+    width: 90%;
+    height: 370px;
+    padding: 5px 20px 25px 20px;
+    margin: 10px 10px;
+  }
+
+  .card-heading {
+    font-size: 25px;
+  }
+
+  .info-card > img {
+    height: 82px;
+    width: 82px;
+  }
+
+  .card-text {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .info-card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 250px) {
+  .card-heading {
+    font-size: 20px;
+  }
+}
+
+.nums-info {
+  margin-bottom: 50px;
+  background-color: #0066b4;
+  padding: 50px 10px;
+}
+
+.num-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.num-wrapper {
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 15px;
+  width: 33%;
+}
+
+.num {
+  font-size: 85px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.num-text {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.last-num {
+  border: none;
+}
+
+@media only screen and (max-width: 900px) {
+  /*
+  .num-wrap {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .num-wrapper {
+    width: 33%;
+  }
+
+  */
+  .num {
+    font-size: 55px;
+  }
+
+  .num-text {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .num-wrap {
+    flex-wrap: wrap;
+  }
+
+  .num-wrapper {
+    width: 100%;
+    border: none;
+  }
+}
+
+.map iframe {
+  width: 100%;
+  height: 675px;
+  padding: 10px;
+}
+
+.map {
+  margin-bottom: 100px;
+}
+
+.count {
+  transition: all 2s ease;
+}
+
+@media only screen and (max-width: 340px) {
+  .map iframe {
+    height: 500px;
+  }
+
+  .sec-h {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 216px) {
+  .card-text {
+    font-size: 14px;
+  }
+
+  .info-card {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .card-heading {
+    font-size: 17px;
+    word-wrap: break-word;
+  }
+
+  .num {
+    font-size: 35px;
+  }
 }
 
 .next-prev {
@@ -542,7 +981,12 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
-
+.container-ads {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
 .Section_top {
   /*
   width: 100%;
@@ -1107,8 +1551,9 @@ html {
   transition: 0.3s;
   cursor: pointer;
   margin-bottom: 80px;
-
+  max-height: 350px;
   margin: 10px;
+  margin-right: 18px;
 }
 
 .card-office:hover {
@@ -1127,25 +1572,26 @@ html {
 }
 
 .card-office-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; 
   flex-wrap: wrap;
-  margin-top: 150px;
+  margin-top: 150px; 
+  justify-content: center;
 }
 
 
 .card-ap {
   overflow: hidden;
-  max-width: 265px;
+  width: 265px;
   text-align: center;
   border: 1px solid #0066b4;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   transition: 0.3s;
   cursor: pointer;
   margin-bottom: 80px;
-
+  height: 350px;
   margin: 10px;
+  margin-right: 18px;
+ 
 }
 
 .card-ap:hover {
@@ -1209,13 +1655,14 @@ html {
 
 .nav-links-res {
   position: fixed;
+  z-index: 555;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   height: 100%;
   width: 100%;
-  background-color: #0066b4;
+  background-color: rgba(0,102,180,0.8);
   margin: auto;
   padding-top: 20%;
   animation: 1.5s cubic-bezier(0.25, 1, 0.3, 1) square-in-bottom-left both;
@@ -1261,6 +1708,12 @@ html {
   .nav-item {
     font-size: 16px;
   }
+  .navbar{
+    flex-direction: unset;
+   }
+   .container-nav{
+     margin:unset!important;
+   }
 }
 
 @media only screen and (max-width: 700px) {
@@ -1270,6 +1723,8 @@ html {
 
   .burger {
     display: block;
+    position: absolute;
+    right: 15px;
   }
 }
 
@@ -1280,7 +1735,8 @@ html {
 
   .logo img {
     height: 70px;
-    width: 70px;
+    width: 70px; 
+    justify-self: flex-start;
   }
 }
 

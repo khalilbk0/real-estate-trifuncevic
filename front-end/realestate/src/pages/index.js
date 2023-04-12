@@ -43,7 +43,7 @@ useEffect(() => {
   crossorigin="anonymous"
 />
       </Head>
-
+      <NavbarComponent/>
       <div className="Section_top"></div>
       <div className="section">
       <div className="overlay"></div>

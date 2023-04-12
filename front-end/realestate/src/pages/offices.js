@@ -73,18 +73,25 @@ function PaginatedItems({ itemsPerPage }) {
     <>
 
         
-    <div class="card-wrapper">
+    <div class="card-office-wrapper">
     <Items currentItems={currentItems} />
     </div>
-       <div class="next-prev">
+       <div class="next-prev mt-5">
       <div class="">
       <ReactPaginate 
-        nextLabel='>'
+        nextLabel={       <button class="prev" >
+        <img src="/assets/next.png" alt="previous button" />
+      </button>
+}
         containerClassName='btns'
         onPageChange={handlePageClick}
-        pageRangeDisplayed={1}
         pageCount={pageCount}
-        previousLabel="<"
+        
+        pageRangeDisplayed={false}
+        previousLabel={       <button class="prev" >
+        <img src="/assets/previous.png" alt="previous button" />
+      </button>
+}
         renderOnZeroPageCount={null}
       />
         </div>  
@@ -121,7 +128,7 @@ function PaginatedItems({ itemsPerPage }) {
       <div class="background-section-office">
       <h2>LOKALI</h2>
     </div>
-    <div className='container' >
+    <div className='container-ads' >
  
      <PaginatedItems itemsPerPage={12} />,
    

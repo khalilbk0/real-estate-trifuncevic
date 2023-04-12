@@ -1,9 +1,9 @@
 <?php 
 
 $host = 'localhost';
-$dbname = 'u602768809_testing';
-$user = 'u602768809_tester123';
-$password = 'L8_60r3aj';
+$dbname = 'real_estate';
+$user = 'root';
+$password = '';
 
 // Create a new PDO instance
 try {

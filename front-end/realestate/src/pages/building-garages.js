@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import Pagination from '@/components/pagination';
 import NavbarComponent from '@/components/navbar';
 import Head from 'next/head';
-const BuildingPage = ({params}) => {
+const BuildingGarage = ({params}) => {
   const router = useRouter()
   
  
@@ -49,7 +49,7 @@ const BuildingPage = ({params}) => {
       if(router.isReady){
         if(router.query.page == undefined){
           router.push({
-            pathname:'/building' , 
+            pathname:'/building-garages' , 
             query:{
               id:id , 
               page:Page
@@ -69,7 +69,7 @@ const BuildingPage = ({params}) => {
        }) 
       } )
  
-    axios.get('https://testing.tvikonekretnine.com/api/appartmentById.php?id='+id).then((res) => {
+    axios.get('https://testing.tvikonekretnine.com/api/GarageById.php?id='+id).then((res) => {
         console.log(res.data)
         setAppartments(res.data)
         console.log(Appartments)
@@ -124,8 +124,8 @@ const BuildingPage = ({params}) => {
       </div>
     </div>
     <div className="ad-cards section">
-      <div className="container-ads">
-        <div className="card-office-wrapper">
+      <div className="container">
+        <div className="card-wrapper">
           {
              Appartments.map((el,key) => {
               let img = el.main_image? `https://testing.tvikonekretnine.com/${el.main_image}` : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
@@ -133,7 +133,7 @@ const BuildingPage = ({params}) => {
               return(
                 <div className="card-ap" key={key} onClick={() => {
                     router.push({
-                    pathname:'/apartment',
+                    pathname:'/garage',
                     query:{id:el.id}
                   })
                 }} >
@@ -152,15 +152,10 @@ const BuildingPage = ({params}) => {
         </div>
       </div>
     </div> 
-    <Pagination 
-     page={Page}
-     nextBtn={nextPage}
-     prevBtn={prevPage}
-  /*    prevBtn={} */
-        />
+   
    </>
   );
  
 };
 
-export default BuildingPage;
+export default BuildingGarage;
