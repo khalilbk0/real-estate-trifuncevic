@@ -13,7 +13,7 @@ const [Page, setPage] = useState(page)
     return (
         <div class="next-prev">
       <div class="btns">
-        <button class="prev" onClick={prevBtn}>
+        <button class="prev" >
           <img src="/assets/previous.png" alt="previous button" />
         </button>
 
